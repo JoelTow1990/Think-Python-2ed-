@@ -1,0 +1,11 @@
+/* Exercise 10.7. Write a function called has_duplicates that takes a list and returns True if there
+is any element that appears more than once. It should not modify the original list. */
+
+def has_duplicates(t):
+    """Assumes t is a list, returns True if any element of the list occurs
+    more than once in the list, returns False otherwise"""
+    copy = sorted(t.copy())
+    for i in range(len(copy)-1):
+        if t[i]==t[i+1]:
+            return True
+    return False
