@@ -1,0 +1,9 @@
+/* Exercise 10.6. Two words are anagrams if you can rearrange the letters from one to spell the other.
+Write a function called is_anagram that takes two strings and returns True if they are anagrams */
+
+def is_anagram(a, b):
+    """Assumes a and b are strings, returns True if a and b are anagrams, 
+    returns False otherwise"""
+    list1 = list(a)
+    list2 = list(b)
+    return sorted(list1)==sorted(list2)
