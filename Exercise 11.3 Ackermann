@@ -1,0 +1,16 @@
+"""
+Exercise 11.3. Memoize the Ackermann function from Exercise 6.2 and see if memoization
+makes it possible to evaluate the function with bigger arguments.
+"""
+
+def ackermann(m, n):
+    ackdict = {}
+    if m==0:
+        return n+1
+    elif m>0 and n==0:
+        return ackermann(m-1, 1)
+    if (m, n) in ackdict:
+        return ackdict(m, n)
+    else:
+        ackdict[m, n] = ackermann(m-1, ackermann(m, n-1))
+        return ackdict[m, n]
