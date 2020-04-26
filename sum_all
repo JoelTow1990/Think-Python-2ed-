@@ -1,0 +1,9 @@
+"""
+As an exercise, write a function called sum_all that takes any number of arguments and
+returns their sum.
+"""
+def sum_all(*args):
+    answer = 0
+    for i in args:
+        answer += i
+    return answer
