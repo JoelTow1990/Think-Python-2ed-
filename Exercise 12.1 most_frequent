@@ -1,0 +1,17 @@
+"""
+Exercise 12.1. Write a function called most_frequent that takes a string and prints the letters in decreasing order of frequency.
+"""
+
+def histogram(s):
+    d = dict()
+    for c in s:
+        d[c] = d.get(c, 0) +1
+    return d
+
+def most_frequent(s):
+    tuplist = []
+    frequencies = histogram(s)
+    tuplist = sorted([(freq, letter) for letter, freq in frequencies.items()])
+    tuplist.reverse()
+    result = [k for j,k in tuplist]
+    return result
