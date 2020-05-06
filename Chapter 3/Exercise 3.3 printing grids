@@ -1,0 +1,71 @@
+"""
+Exercise 3.3. Note: This exercise should be done using only the statements and other features we
+have learned so far.
+1. Write a function that draws a grid like the following:
++ - - - - + - - - - +
+|         |         |
+|         |         |
+|         |         |
+|         |         |
++ - - - - + - - - - +
+|         |         |
+|         |         |
+|         |         |
+|         |         |
++ - - - - + - - - - +
+2. Write a function that draws a similar grid with four rows and four columns.
+"""
+
+def do_twice(f):
+    f()
+    f()
+    
+def do_four(f):
+    do_twice(f)
+    do_twice(f)
+
+def print_solid():
+    print('+ - - - -', end=' ')
+
+def print_spaced():
+    print('|        ', end=' ')
+
+def print_solids():
+    do_twice(print_solid)
+    print('+')
+
+def print_spaceds():
+    do_twice(print_spaced)
+    print('|')
+
+def print_half():
+    print_solids()
+    do_four(print_spaceds)
+
+def print_grid():
+    do_twice(print_half)
+    print_solids()
+
+print_grid()
+
+def top_middle_bottom():
+    print('+ - - - - + - - - - + - - - - + - - - - +')
+    
+def rest():
+    print('|         |         |         |         |')
+  
+def section():
+    top_middle_bottom()
+    rest()
+    rest()
+    rest()
+    rest()
+
+def print_large_grid():
+    section()
+    section()
+    section()
+    section()
+    top_middle_bottom()
+
+print_large_grid()
