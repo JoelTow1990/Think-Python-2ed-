@@ -1,0 +1,12 @@
+"""
+Exercise 6.2. See http: // en. wikipedia. org/ wiki/ Ackermann_ function . 
+Write a function named ack that evaluates the Ackermann function.
+"""
+
+def ack(m, n):
+    if m==0:
+        return n+1
+    elif m>0 and n==0:
+        return ack(m-1, 1)
+    elif m>0 and n>0:
+        return ack(m-1, ack(m, n-1))
