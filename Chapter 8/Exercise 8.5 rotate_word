@@ -1,0 +1,38 @@
+"""
+Exercise 8.5. A Caesar cypher is a weak form of encryption that involves “rotating” each letter by
+a fixed number of places. To rotate a letter means to shift it through the alphabet, wrapping around
+to the beginning if necessary, so ’A’ rotated by 3 is ’D’ and ’Z’ rotated by 1 is ’A’.
+
+To rotate a word, rotate each letter by the same amount. For example, “cheer” rotated by 7 is “jolly”
+and “melon” rotated by -10 is “cubed”. In the movie 2001: A Space Odyssey, the ship computer
+is called HAL, which is IBM rotated by -1.
+
+Write a function called rotate_word that takes a string and an integer as parameters, and returns
+a new string that contains the letters from the original string rotated by the given amount.
+"""
+
+def rotate_word(string, integer):
+    alphadict = {'a':1,'b':2,'c':3,'d':4,'e':5,'f':6,'g':7,'h':8,'i':9,'j':10,'k':11,\
+                 'l':12,'m':13,'n':14,'o':15,'p':16,'q':17,'r':18,'s':19,'t':20,'u':21,\
+                 'v':22,'w':23,'x':24,'y':25,'z':26}
+    numdict = {1: 'a',2: 'b',3: 'c',4: 'd',5: 'e',6: 'f',7: 'g',8: 'h',9: 'i',10: 'j',\
+               11: 'k',12: 'l',13: 'm',14: 'n',15: 'o',16: 'p',17: 'q',18: 'r',19: 's',\
+               20: 't',21: 'u',22: 'v',23: 'w',24: 'x',25: 'y', 26: 'z'}
+    cypher = []
+    answer = []
+    for char in string:
+        code = alphadict[char.lower()]+integer
+        if code <= 26:
+            cypher.append(numdict[code])
+        if code > 26:
+            cypher.append(numdict[code-26])
+    for i in range(len(cypher)):
+        if string[i].islower():
+            answer.append(cypher[i])
+        else:
+            answer.append(cypher[i].upper())
+    return ''.join(answer)
+
+# Work in progress, see below for noted issues.
+# Doesn't handle negative shift, need to do additional work to get this to work with negative integers. 
+# Also, only good for a word with no spaces - I take it this fits the brief, but it would be nice to generalise to sentences.
