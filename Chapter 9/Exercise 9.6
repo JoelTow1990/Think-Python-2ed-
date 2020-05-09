@@ -1,0 +1,7 @@
+"""
+Exercise 9.6. Write a function called is_abecedarian that returns True if the letters in a word
+appear in alphabetical order (double letters are ok). 
+"""
+
+def is_abecedarian(word):
+    return list(word.lower())==sorted(list(word.lower()))
