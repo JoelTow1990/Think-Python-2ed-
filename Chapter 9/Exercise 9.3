@@ -1,0 +1,22 @@
+"""
+Exercise 9.3. Write a function named avoids that takes a word and a string of forbidden letters,
+and that returns True if the word doesn’t use any of the forbidden letters.
+
+Write a program that prompts the user to enter a string of forbidden letters and then prints the
+number of words that don’t contain any of them.
+"""
+
+def avoids(word, forbidden):
+    count = 0
+    for char in word:
+        if char not in forbidden:
+            count += 1
+    return count == len(word)
+
+fin = open(r"C:\Users\joelt\Desktop\Python Course\Think Pytho\words.txt")
+x = input("Type a string of forbidden letters: \n")
+count = 0
+for word in fin:
+    if avoids(word, x)==True:
+        count +=1
+print(count)
