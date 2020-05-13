@@ -1,0 +1,41 @@
+"""
+Exercise 10.9. Write a function that reads the file words.txt and builds a list with one element
+per word. Write two versions of this function, one using the append method and the other using
+the idiom t = t + [x]. Which one takes longer to run?
+"""
+
+def read_file_list_append():
+    """ Reads a file containing a list of words and appends each word to a list.
+    """
+    words = []
+    fin = open(r"C:\Users\joelt\Desktop\Python Course\Think Pytho\words.txt")
+    for word in fin:
+        words.append(word.strip())
+    return words
+
+def read_file_list_plus():
+    """ Reads a file containing a list of words and adds each word to a list.
+    """
+    words = []
+    fin = open(r"C:\Users\joelt\Desktop\Python Course\Think Pytho\words.txt")
+    for word in fin:
+        words = words + [word.strip()]
+    return words
+
+def time_function(f):
+    """Runs a function f and outputs the time in seconds it takes for the 
+    function to run.
+    f: a function
+    output: time in seconds it takes function to run
+    """
+    import time
+    start = time.time()
+    f()
+    time = time.time() - start
+    return time
+
+def compare_append_to_plus():
+    append = time_function(read_file_list_append)
+    plus = time_function(read_file_list_plus)
+    print("Append function takes ", append, " seconds to run.")
+    print("Plus function takes ", plus, " seconds to run.")
