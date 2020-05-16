@@ -1,5 +1,7 @@
-/* Exercise 10.7. Write a function called has_duplicates that takes a list and returns True if there
-is any element that appears more than once. It should not modify the original list. */
+"""
+Exercise 10.7. Write a function called has_duplicates that takes a list and returns True if there
+is any element that appears more than once. It should not modify the original list. 
+"""
 
 def has_duplicates(t):
     """Assumes t is a list, returns True if any element of the list occurs
