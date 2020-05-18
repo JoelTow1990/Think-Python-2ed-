@@ -21,7 +21,7 @@ def createWordlist():
     returns: a list of strings/words
     """
     wordlist = []
-    fin = open(r"C:\Users\joelt\Desktop\Python Course\Think Pytho\words.txt")
+    fin = open(r"words.txt")
     for word in fin:
         wordlist.append(word.strip())
     return wordlist
