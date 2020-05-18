@@ -1,0 +1,54 @@
+"""
+Exercise 10.11. Two words are a “reverse pair” if each is the reverse of the other. Write a program
+that finds all the reverse pairs in the word list
+"""
+
+def in_bisect(wordlist, word):
+    """ Uses bisection search to check whether a word/string appears in a list
+    of words/strings.
+    
+    Assumes words/strings in list are sorted
+    
+    wordlist: list of words/strings
+    word: string
+    
+    returns: True if word is in list, False otherwise
+    """
+    if 0 == len(wordlist):
+        return False
+    i = len(wordlist)//2
+    if wordlist[i] == word:
+        return True
+    elif wordlist[i] > word:
+        return in_bisect(wordlist[:i], word)
+    else:
+        return in_bisect(wordlist[i+1:], word)
+    
+def reverse_pair(wordlist, word):
+    """ Given a list of strings and a word/string, this function searches the
+    list to see if the reverse of the word/string appears in the list
+    
+    Assumes words/strings in list are sorted
+    
+    wordlist: list of words/strings
+    word: string
+    
+    returns: True if reverse of word is in list, False otherwise
+    """
+    return in_bisect(wordlist, word[::-1])
+
+def list_of_pairs(wordlist):
+    """ Given a list of strings, this function searches the list to find reverse
+    pairs and appends any reverse pairs it finds into a new list as a tuple
+    
+    Assumes strings in list are sorted
+    
+    wordlist: list of strings
+    
+    returns: list of all reverse pairs contained in the initial list of strings
+    """
+    pairList = []
+    for word in wordlist:
+        if reverse_pair(wordlist, word):
+            pairList.append((word, word[::-1]))
+    return pairList
