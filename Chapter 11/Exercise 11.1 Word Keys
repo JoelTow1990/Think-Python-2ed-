@@ -1,0 +1,14 @@
+"""
+Exercise 11.1. Write a function that reads the words in words.txt and stores them as keys in a
+dictionary. It doesn’t matter what the values are. Then you can use the in operator as a fast way to
+check whether a string is in the dictionary.
+"""
+
+def word_keys():
+    count = 0
+    result = dict()
+    fin = open(r"C:\Users\joelt\Desktop\Python Course\Think Pytho\words.txt")
+    for word in fin:
+        result[word.strip()] = count
+        count += 1
+    return result
