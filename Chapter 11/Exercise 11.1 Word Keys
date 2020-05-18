@@ -7,7 +7,7 @@ check whether a string is in the dictionary.
 def word_keys():
     count = 0
     result = dict()
-    fin = open(r"C:\Users\joelt\Desktop\Python Course\Think Pytho\words.txt")
+    fin = open(r"words.txt")
     for word in fin:
         result[word.strip()] = count
         count += 1
