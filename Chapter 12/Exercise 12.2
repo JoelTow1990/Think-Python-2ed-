@@ -1,0 +1,53 @@
+"""
+Exercise 12.2. More anagrams!
+
+1. Write a program that reads a word list from a file (see Section 9.1) and prints all the sets of
+words that are anagrams.
+
+Here is an example of what the output might look like:
+
+['deltas', 'desalt', 'lasted', 'salted', 'slated', 'staled']
+['retainers', 'ternaries']
+['generating', 'greatening']
+['resmelts', 'smelters', 'termless']
+
+Hint: you might want to build a dictionary that maps from a collection of letters to a list
+of words that can be spelled with those letters. The question is, how can you represent the
+collection of letters in a way that can be used as a key?
+
+2. Modify the previous program so that it prints the longest list of anagrams first, followed by
+the second longest, and so on.
+"""
+
+def anagram_lists():
+    ana_dict = dict()
+    fin = open(r"C:\Users\joelt\Desktop\Python Course\Think Pytho\words.txt")
+    for word in fin:
+        ana = ''.join(sorted(list(word.strip().lower())))
+        if ana not in ana_dict:
+            ana_dict[ana] = [word.strip()]
+        else: 
+                ana_dict[ana].append(word.strip())
+    return ana_dict
+    
+def get_anagram_sets():
+    answer = []
+    dictionary = anagram_lists()
+    for i in dictionary.values():
+        if len(i) > 1:
+            answer.append(i)
+    return answer
+
+def print_anagrams():
+    for i in get_anagram_sets():
+        print(i, '\n')
+        
+def print_anagrams_largesttosmallest():
+    answer = []
+    ana_lists = get_anagram_sets()
+    for item in ana_lists:
+        answer.append((len(item),item))
+    answer.sort()
+    answer.reverse()
+    for i,v in answer:
+        print(v)
