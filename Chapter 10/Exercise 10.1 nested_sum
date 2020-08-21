@@ -14,9 +14,9 @@ def nested_sum(t):
 '''Returns the sum of the elements from every list in t'''
 
 def nested_sum(L):
-    '''Assumes t is a list of lists'''
+    '''Assumes L is a list of lists'''
     res = 0
     for t in L:
         res += sum(t)
     return res
-'''Returns the sum of the elements from every list in t'''
+'''Returns the sum of the elements from every list in L'''
