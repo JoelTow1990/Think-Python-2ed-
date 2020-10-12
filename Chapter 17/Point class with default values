@@ -1,0 +1,11 @@
+"""
+As an exercise, write an init method for the Point class that takes x and y as optional
+parameters and assigns them to the corresponding attributes.
+"""
+
+class Point(object):
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+    def distance_between_points(self, other):
+        return ((other.x-self.x)**2 + (other.y-self.y)**2)**0.5
